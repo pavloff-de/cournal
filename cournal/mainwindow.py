@@ -484,7 +484,11 @@ class MainWindow(Gtk.Window):
                                        (Gtk.STOCK_SAVE, Gtk.ResponseType.ACCEPT,
                                         Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL))
         dialog.set_filter(xoj_filter)
-        dialog.set_current_name("document.xoj")
+        
+        current_name = self.last_filename or self.document.pdfname
+        if current_name:
+            dialog.set_current_name(os.path.splitext(os.path.basename(current_name))[0] + ".xoj")
+            dialog.set_current_folder(os.path.dirname(current_name))
 
         if dialog.run() == Gtk.ResponseType.ACCEPT:
             filename = dialog.get_filename()
