@@ -6,6 +6,7 @@
     <property name="accel_group">accelgroup</property>
     <child>
       <object class="GtkAction" id="action_open_xoj">
+        <property name="label" translatable="yes">Open</property>
         <property name="stock_id">gtk-open</property>
       </object>
     </child>
@@ -315,6 +316,18 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="toolbar_style">icons</property>
+        <child>
+          <object class="GtkToolButton" id="tool_open_xoj">
+            <property name="related_action">action_open_xoj</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Open</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="homogeneous">True</property>
+          </packing>
+        </child>
         <child>
           <object class="GtkToolButton" id="tool_open_pdf">
             <property name="related_action">action_open_pdf</property>
