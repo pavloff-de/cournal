@@ -28,7 +28,7 @@ _last_point = None
 _current_coords = None
 _current_stroke = None
 linewidth = 0.7
-color = (0,0,128,255)
+color = (115,210,22,255) # green
 
 def press(widget, event):
     """

@@ -470,7 +470,7 @@
                 <property name="relief">none</property>
                 <property name="use_alpha">True</property>
                 <property name="title" translatable="yes">Pen Color</property>
-                <property name="rgba">rgb(32,74,135)</property>
+                <property name="rgba">rgb(115,210,22)</property>
               </object>
             </child>
           </object>
