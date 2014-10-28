@@ -43,6 +43,7 @@ xoj_filter.add_pattern("*.xoj")
 
 LINEWIDTH_SMALL = 0.7
 LINEWIDTH_NORMAL = 1.5
+LINEWIDTH_MIDDLE = 5.0
 LINEWIDTH_BIG = 8.0
 
 class MainWindow(Gtk.Window):
@@ -96,11 +97,12 @@ class MainWindow(Gtk.Window):
         action_zoom_fit = builder.get_object("action_zoom_fit")
         action_pensize_small = builder.get_object("action_pensize_small")
         action_pensize_normal = builder.get_object("action_pensize_normal")
+        action_pensize_middle = builder.get_object("action_pensize_middle")
         action_pensize_big = builder.get_object("action_pensize_big")
         tool_pen_color = builder.get_object("tool_pen_color")
         self.actiongroup_document_specific = builder.get_object("actiongroup_document_specific")
         self.actiongroup_document_specific.set_sensitive(False)
-        builder.get_object("tool_pensize_normal").set_active(True)
+        builder.get_object("tool_pensize_small").set_active(True)
         
         # Workaround for bug https://bugzilla.gnome.org/show_bug.cgi?id=671786
         if not Gtk.check_version(3,6,0) == None:
@@ -123,6 +125,7 @@ class MainWindow(Gtk.Window):
             a.connect_by_path(action_zoom_fit.get_accel_path(), lambda a,b,c,d: action_zoom_fit.activate())
             a.connect_by_path(action_pensize_small.get_accel_path(), lambda a,b,c,d: action_pensize_small.activate())
             a.connect_by_path(action_pensize_normal.get_accel_path(), lambda a,b,c,d: action_pensize_normal.activate())
+            a.connect_by_path(action_pensize_middle.get_accel_path(), lambda a,b,c,d: action_pensize_middle.activate())
             a.connect_by_path(action_pensize_big.get_accel_path(), lambda a,b,c,d: action_pensize_big.activate())
 
         action_open_xoj.connect("activate", self.run_open_xoj_dialog)
@@ -143,6 +146,7 @@ class MainWindow(Gtk.Window):
         tool_pen_color.connect("color-set", self.change_pen_color)
         action_pensize_small.connect("activate", self.change_pen_size, LINEWIDTH_SMALL)
         action_pensize_normal.connect("activate", self.change_pen_size, LINEWIDTH_NORMAL)
+        action_pensize_middle.connect("activate", self.change_pen_size, LINEWIDTH_MIDDLE)
         action_pensize_big.connect("activate", self.change_pen_size, LINEWIDTH_BIG)
     
         # Statusbar:

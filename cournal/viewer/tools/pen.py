@@ -27,7 +27,7 @@ A pen tool. Draws a stroke with a certain color and size.
 _last_point = None
 _current_coords = None
 _current_stroke = None
-linewidth = 1.5
+linewidth = 0.7
 color = (0,0,128,255)
 
 def press(widget, event):
