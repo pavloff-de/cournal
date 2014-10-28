@@ -26,3 +26,10 @@ t3k
 build
 dist
 MANIFEST
+# PROJECT
+.project
+.pydevproject
+.settings/*
+
+# GIT
+.git/*
